@@ -203,6 +203,9 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-64 pb-12 md:pt-32 md:pb-20 flex flex-col justify-end min-h-screen lg:block">
+        {/* Hidden H1 for SEO - Ensures primary keyword is always indexed */}
+        <h1 className="sr-only">Frank Selorm K. Ankutse - Official Campaign Website for Volta Regional Deputy Treasurer</h1>
+        
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -835,16 +838,25 @@ const Contact = () => {
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-ndc-green/10 p-8 text-center border-2 border-ndc-green"
+                  className="bg-ndc-green/10 p-8 text-center border-2 border-ndc-green rounded-xl"
                 >
-                  <CheckCircle2 className="mx-auto text-ndc-green mb-4" size={48} />
-                  <h4 className="text-2xl font-black text-ndc-green mb-2 uppercase">Registration Successful!</h4>
-                  <p className="font-bold text-slate-600">Thank you for joining the movement. We will contact you shortly.</p>
+                  <div className="w-20 h-20 bg-ndc-green text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-ndc-green/20">
+                    <CheckCircle2 size={40} />
+                  </div>
+                  <h4 className="text-3xl font-black text-ndc-black mb-4 uppercase tracking-tighter">Welcome to the Team!</h4>
+                  <p className="font-bold text-slate-700 text-lg leading-relaxed mb-6">
+                    Thank you for joining <span className="text-ndc-green">Frank K Ankutse's</span> campaign. 
+                    Your commitment to the NDC and our constituency is what will bring the change we need.
+                  </p>
+                  <div className="bg-white p-4 rounded-lg border border-ndc-green/20 mb-8">
+                    <p className="text-sm font-black text-ndc-red uppercase tracking-widest">Next Step</p>
+                    <p className="text-xs text-slate-500 font-bold mt-1">A campaign coordinator will reach out to you within 24 hours.</p>
+                  </div>
                   <button 
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 text-xs font-black uppercase tracking-widest text-ndc-red hover:underline"
+                    className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-ndc-red transition-colors"
                   >
-                    Register another person
+                    Register another volunteer
                   </button>
                 </motion.div>
               ) : (
