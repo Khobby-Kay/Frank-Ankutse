@@ -147,21 +147,37 @@ const Navbar = () => {
 };
 
 const Hero = () => {
+  const [currentText, setCurrentText] = useState(0);
+  const carouselTexts = [
+    { main: "MITSO", sub: "MIDZO!" },
+    { main: "ACCOUNTABILITY", sub: "FIRST." },
+    { main: "INNOVATION", sub: "ALWAYS." },
+    { main: "VICTORY", sub: "2028." }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentText((prev) => (prev + 1) % carouselTexts.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-ndc-black">
       {/* Background Image with NDC Overlay */}
       <div className="absolute inset-0 z-0">
         <motion.img 
           initial={{ scale: 1.2, opacity: 0 }}
-          animate={{ scale: 1, opacity: 0.55 }}
+          animate={{ scale: 1, opacity: 0.85 }}
           transition={{ duration: 2, ease: "easeOut" }}
           src="https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/625875009_34460314656892661_880893076253517866_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeE3uZNgxtdT8NZBWQDQ6yumTRzIeORoBKNNHMh45GgEo2_Rl9ah-CIuVLFwdwW5Hhm8PfRvnOvfcQTclx3jYcGq&_nc_ohc=l6D-fvRmRLUQ7kNvwEp1JHs&_nc_oc=AdlDGyY6cQ9LlmzrBABeJEmnu3eY5Nl24HU5DUZ24aq3jXdUZLDAQ7gLIbKay-kFBRk&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=5lCGDD5vDSRwIptVOG8XIQ&_nc_ss=8&oh=00_Afx7uHcnwJ3BAl5vIFZJzm4M57BOGdKgcUJYFkBTh-5bew&oe=69B9E92D" 
           alt="Frank Selorm K. Ankutse with the People" 
           className="w-full h-full object-cover object-center md:object-top"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ndc-black via-ndc-black/80 to-transparent hidden lg:block" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ndc-black via-ndc-black/40 to-transparent lg:hidden" />
+        {/* Lighter gradients to show face */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ndc-black/40 via-transparent to-transparent hidden lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ndc-black/60 via-transparent to-transparent lg:hidden" />
       </div>
 
       {/* Floating Decorative Elements */}
@@ -186,7 +202,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24 pb-16 md:pt-32 md:pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-64 pb-12 md:pt-32 md:pb-20 flex flex-col justify-end min-h-screen lg:block">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -194,7 +210,7 @@ const Hero = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="lg:col-span-8"
           >
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-4 mb-6 md:mb-8">
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: 64 }}
@@ -206,12 +222,23 @@ const Hero = () => {
               </span>
             </div>
             
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase">
-              MITSO <br />
-              <span className="text-ndc-green">MIDZO!</span>
-            </h1>
+            <div className="h-[100px] sm:h-[150px] md:h-[220px] lg:h-[280px] xl:h-[350px] relative mb-6 md:mb-8">
+              <AnimatePresence mode="wait">
+                <motion.h1 
+                  key={currentText}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[11rem] font-black text-white leading-[0.85] tracking-tighter uppercase absolute inset-0"
+                >
+                  {carouselTexts[currentText].main} <br />
+                  <span className="text-ndc-green">{carouselTexts[currentText].sub}</span>
+                </motion.h1>
+              </AnimatePresence>
+            </div>
             
-            <div className="flex flex-wrap items-center gap-4 mb-10">
+            <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-8 md:mb-10">
               <motion.div 
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -240,7 +267,12 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <a href="#contact" className="group bg-ndc-green hover:bg-green-700 text-white px-10 py-5 md:px-12 md:py-6 font-black uppercase tracking-widest transition-all flex items-center justify-center gap-4 shadow-2xl relative overflow-hidden">
+              <a 
+                href="https://chat.whatsapp.com/LnrdXskPmTu4JOZx4s26ZD?mode=gi_t" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group bg-ndc-green hover:bg-green-700 text-white px-10 py-5 md:px-12 md:py-6 font-black uppercase tracking-widest transition-all flex items-center justify-center gap-4 shadow-2xl relative overflow-hidden"
+              >
                 <span className="relative z-10">Join The Campaign</span>
                 <ChevronRight className="relative z-10 group-hover:translate-x-2 transition-transform" />
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -266,8 +298,8 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="text-ndc-green font-black text-4xl leading-none">2026</p>
-                <p className="text-white/40 text-[10px] font-black uppercase tracking-widest">Election Year</p>
+                <p className="text-ndc-green font-black text-4xl leading-none">2028</p>
+                <p className="text-white/40 text-[10px] font-black uppercase tracking-widest">Victory Year</p>
               </div>
               <div className="w-px h-12 bg-white/10" />
               <div className="text-right">
@@ -329,7 +361,7 @@ const About = () => {
                 His professional background in finance, combined with his deep roots in Hohoe, positions him as a bridge-builder who understands the unique challenges of our constituencies. Frank believes that a strong regional treasury is the backbone of a winning campaign.
               </p>
               <p>
-                As we prepare for the 2026 general elections, Frank is offering himself to serve as your Volta Regional Deputy Treasurer—to ensure transparency, accountability, and the strategic mobilization of resources for an NDC landslide victory.
+                As we prepare for the 2028 general elections, Frank is offering himself to serve as your Volta Regional Deputy Treasurer—to ensure transparency, accountability, and the strategic mobilization of resources for an NDC landslide victory.
               </p>
             </div>
             
@@ -414,7 +446,7 @@ const Vision = () => {
       icon: <Users size={48} />
     },
     {
-      title: "Victory 2026",
+      title: "Victory 2028",
       desc: "Building a robust financial war-chest to ensure a resounding NDC victory in the upcoming elections.",
       icon: <TrendingUp size={48} />
     }
@@ -450,33 +482,27 @@ const News = () => {
   const updates = [
     {
       date: "Oct 24, 2025",
-      title: "Frank K Ankutse Meets with Ho Central Executives",
+      title: "Frank Ankutse at the 2024 campaign in Hohoe ",
       category: "Campaign Trail",
-      image: "https://picsum.photos/seed/meeting1/600/400"
+      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468763974_28416892641234923_2096448978056096836_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEPyHOhFznbbO9lRwqd8-C8rmUeGpCtfI-uZR4akK18j9Efq9Kbhwbw5JOV3ZbdiuOxPTMmuktEjEY7ykxc2K97&_nc_ohc=VmDYRxkqdwIQ7kNvwFX1Klm&_nc_oc=AdlA6bMAn4G9ufET7SU4miK3nkrlMaB8E-qgiID4m9UKwmvUibl1T1p24ds1yEkfnKQ&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=mRp7-eqxdajpcq5v5RNoyQ&_nc_ss=8&oh=00_Afwtltdt_x11EQ6ltj1CJvBriGuzDyCYIBMzv3RVc-3YxA&oe=69BAF2F5"
     },
     {
       date: "Nov 02, 2025",
-      title: "Transparency in Party Financing: A New Proposal",
+      title: "Transparency in Party Financing and Unity ahead of election 2024",
       category: "Policy",
-      image: "https://picsum.photos/seed/policy1/600/400"
+      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468740627_28416891817901672_7482338732039637867_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHpRD6N5hakYZS1e_0CYZ78HBnoIOuBKX8cGegg64EpfywuhUKQMEK14KOqnKMbZoY-ZUnuIN-IpBGPeALG2GOc&_nc_ohc=qu_0rHB9c64Q7kNvwGYFzT2&_nc_oc=Adm5wHQ510vlZZvxBL9YpFLwgJk0Pxo7oC0jVMr-DM8NCdHmHCwgjeBse0aJOzHbz-U&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=H38ayEZi6vnnUZo3I8EGcQ&_nc_ss=8&oh=00_AfxhL4_s8vZ-L-jeALzRps15-6E0FbOl2dvCJ1_E26_QyA&oe=69BAE032"
     },
     {
-      date: "Nov 15, 2025",
-      title: "Volta Region Youth Wing Endorses Frank K Ankutse",
+      date: "Nov 15, 2024",
+      title: "Youth Wing Endorses Frank K Ankutse",
       category: "Endorsement",
-      image: "https://picsum.photos/seed/youth1/600/400"
+      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/491940668_29849271387997034_5356064297161618259_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFC_4NoDesuk9iJhW-NzvNz1pIiW6r4tzjWkiJbqvi3OEEMpVax7OSptsyUws6-YimOsPVUM93yJ2UeXdp2kE4R&_nc_ohc=Oe7dSHziaJYQ7kNvwFTE0_H&_nc_oc=AdnT-46_fJHV6NreHs1yt8Rk8-T91MsOYt2E9LeLN-8_YYzotwEUENTHIQlUTnd60-E&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=gL-xs4kbmRC8zt2Me0WLFw&_nc_ss=8&oh=00_Afxsx0a2yUA--MbAm0CHcaoNVnXSylQxvlj2UZSJN1WGsg&oe=69BAFA72"
     },
     {
       date: "Dec 05, 2025",
-      title: "Grassroots Mobilization Drive in Keta",
+      title: "Grassroot mobilization and the love of a father.",
       category: "Campaign Trail",
-      image: "https://picsum.photos/seed/keta1/600/400"
-    },
-    {
-      date: "Jan 12, 2026",
-      title: "New Digital Portal for Regional NDC Members",
-      category: "Innovation",
-      image: "https://picsum.photos/seed/digital1/600/400"
+      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/494627570_30082339008023603_7049367356540434681_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=b895b5&_nc_eui2=AeFDGNjPhzHIE_lxa5iURWVG4jfVSzkVoDjiN9VLORWgOLrYkGPvlbHtnCzInXMeWzWk6omU1fdykFl-YEfN3L7D&_nc_ohc=X1TanIOpfY8Q7kNvwFLWy9Z&_nc_oc=AdnPPqSQsJRZiaZC36vgS-p3K5u8eOLx-GpIvR91Cc9L3l_JTbeCGtqOQJ3J7eoHWFE&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=SmJoaO29iraxV0bHC_5ymA&_nc_ss=8&oh=00_AfxYlBzJlSJ9-4Hwbr2xxj8F1SMDSsI4ax8wB0DGBV6-DA&oe=69BADE84"
     }
   ];
 
@@ -533,7 +559,7 @@ const News = () => {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute top-4 left-4 bg-ndc-black text-white text-[10px] font-black uppercase tracking-widest px-3 py-1">
+                      <div className="absolute bottom-4 right-4 bg-ndc-black text-white text-[10px] font-black uppercase tracking-widest px-3 py-1">
                         {item.category}
                       </div>
                     </div>
@@ -639,11 +665,10 @@ const Constituencies = () => {
 
 const Gallery = () => {
   const images = [
-    { url: "https://picsum.photos/seed/campaign1/800/600", caption: "Community Engagement in Hohoe" },
-    { url: "https://picsum.photos/seed/campaign2/800/600", caption: "Youth Empowerment Summit" },
-    { url: "https://picsum.photos/seed/campaign3/800/600", caption: "Strategic Planning with Regional Executives" },
-    { url: "https://picsum.photos/seed/campaign4/800/600", caption: "Grassroots Mobilization in Keta" },
-    { url: "https://picsum.photos/seed/campaign5/800/600", caption: "Town Hall Meeting in Kpando" }
+    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468763974_28416892641234923_2096448978056096836_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEPyHOhFznbbO9lRwqd8-C8rmUeGpCtfI-uZR4akK18j9Efq9Kbhwbw5JOV3ZbdiuOxPTMmuktEjEY7ykxc2K97&_nc_ohc=VmDYRxkqdwIQ7kNvwFX1Klm&_nc_oc=AdlA6bMAn4G9ufET7SU4miK3nkrlMaB8E-qgiID4m9UKwmvUibl1T1p24ds1yEkfnKQ&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=mRp7-eqxdajpcq5v5RNoyQ&_nc_ss=8&oh=00_Afwtltdt_x11EQ6ltj1CJvBriGuzDyCYIBMzv3RVc-3YxA&oe=69BAF2F5", caption: "Frank at campaign 2024" },
+    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468740627_28416891817901672_7482338732039637867_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHpRD6N5hakYZS1e_0CYZ78HBnoIOuBKX8cGegg64EpfywuhUKQMEK14KOqnKMbZoY-ZUnuIN-IpBGPeALG2GOc&_nc_ohc=qu_0rHB9c64Q7kNvwGYFzT2&_nc_oc=Adm5wHQ510vlZZvxBL9YpFLwgJk0Pxo7oC0jVMr-DM8NCdHmHCwgjeBse0aJOzHbz-U&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=H38ayEZi6vnnUZo3I8EGcQ&_nc_ss=8&oh=00_AfxhL4_s8vZ-L-jeALzRps15-6E0FbOl2dvCJ1_E26_QyA&oe=69BAE032", caption: "Another at a campaign 2024" },
+    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/491940668_29849271387997034_5356064297161618259_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFC_4NoDesuk9iJhW-NzvNz1pIiW6r4tzjWkiJbqvi3OEEMpVax7OSptsyUws6-YimOsPVUM93yJ2UeXdp2kE4R&_nc_ohc=Oe7dSHziaJYQ7kNvwFTE0_H&_nc_oc=AdnT-46_fJHV6NreHs1yt8Rk8-T91MsOYt2E9LeLN-8_YYzotwEUENTHIQlUTnd60-E&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=gL-xs4kbmRC8zt2Me0WLFw&_nc_ss=8&oh=00_Afxsx0a2yUA--MbAm0CHcaoNVnXSylQxvlj2UZSJN1WGsg&oe=69BAFA72", caption: "Community Engagement" },
+    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/494627570_30082339008023603_7049367356540434681_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=b895b5&_nc_eui2=AeFDGNjPhzHIE_lxa5iURWVG4jfVSzkVoDjiN9VLORWgOLrYkGPvlbHtnCzInXMeWzWk6omU1fdykFl-YEfN3L7D&_nc_ohc=X1TanIOpfY8Q7kNvwFLWy9Z&_nc_oc=AdnPPqSQsJRZiaZC36vgS-p3K5u8eOLx-GpIvR91Cc9L3l_JTbeCGtqOQJ3J7eoHWFE&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=SmJoaO29iraxV0bHC_5ymA&_nc_ss=8&oh=00_AfxYlBzJlSJ9-4Hwbr2xxj8F1SMDSsI4ax8wB0DGBV6-DA&oe=69BADE84", caption: "Hohoe Mobilization" }
   ];
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -690,16 +715,18 @@ const Gallery = () => {
           <div className="embla__container flex gap-6">
             {images.map((img, i) => (
               <div key={i} className="embla__slide flex-[0_0_100%] md:flex-[0_0_80%] lg:flex-[0_0_60%] min-w-0">
-                <div className="relative aspect-[16/9] overflow-hidden group">
-                  <img 
-                    src={img.url} 
-                    alt={img.caption} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ndc-black via-transparent to-transparent opacity-60" />
-                  <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8">
-                    <p className="text-sm md:text-xl font-black uppercase tracking-widest">{img.caption}</p>
+                <div className="flex flex-col gap-4">
+                  <div className="relative aspect-[16/9] overflow-hidden group">
+                    <img 
+                      src={img.url} 
+                      alt={img.caption} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ndc-black/40 via-transparent to-transparent opacity-60" />
+                  </div>
+                  <div className="px-2">
+                    <p className="text-sm md:text-xl font-black uppercase tracking-widest text-white/90">{img.caption}</p>
                   </div>
                 </div>
               </div>
@@ -738,6 +765,14 @@ const Supporters = () => {
 };
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    constituency: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -775,59 +810,133 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-[10px] text-slate-500 uppercase font-black tracking-[0.2em]">Phone</p>
-                    <p className="text-xl font-bold">+233 24 000 0000</p>
+                    <p className="text-xl font-bold">+233 20 397 9287</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex gap-4 mt-12">
-                {[Facebook, Twitter, Instagram].map((Icon, i) => (
-                  <a key={i} href="#" className="w-14 h-14 bg-white/5 hover:bg-ndc-red flex items-center justify-center transition-all border border-white/10">
-                    <Icon size={24} />
-                  </a>
-                ))}
+                <a href="https://web.facebook.com/ankutsefrank" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/5 hover:bg-ndc-red flex items-center justify-center transition-all border border-white/10">
+                  <Facebook size={24} />
+                </a>
+                <a href="#" className="w-14 h-14 bg-white/5 hover:bg-ndc-red flex items-center justify-center transition-all border border-white/10">
+                  <Twitter size={24} />
+                </a>
+                <a href="#" className="w-14 h-14 bg-white/5 hover:bg-ndc-red flex items-center justify-center transition-all border border-white/10">
+                  <Instagram size={24} />
+                </a>
               </div>
             </div>
 
             <div className="bg-white p-6 md:p-10 text-ndc-black">
               <h3 className="text-2xl md:text-3xl font-black mb-8 uppercase tracking-tighter">Volunteer Now</h3>
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</label>
-                  <input type="text" className="w-full border-b-2 border-slate-200 px-0 py-3 focus:border-ndc-green outline-none transition-all font-bold text-lg" placeholder="Enter your name" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Phone Number</label>
-                  <input type="tel" className="w-full border-b-2 border-slate-200 px-0 py-3 focus:border-ndc-green outline-none transition-all font-bold text-lg" placeholder="Enter your phone" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Constituency</label>
-                  <select className="w-full border-b-2 border-slate-200 px-0 py-3 focus:border-ndc-green outline-none transition-all font-bold text-lg bg-transparent">
-                    <option value="">Select Constituency</option>
-                    <option>Adaklu</option>
-                    <option>Afadzato South</option>
-                    <option>Agotime-Ziope</option>
-                    <option>Akatsi North</option>
-                    <option>Akatsi South</option>
-                    <option>Anlo</option>
-                    <option>Central Tongu</option>
-                    <option>Ho Central</option>
-                    <option>Ho West</option>
-                    <option>Hohoe</option>
-                    <option>Keta</option>
-                    <option>Ketu North</option>
-                    <option>Ketu South</option>
-                    <option>Kpando</option>
-                    <option>North Dayi</option>
-                    <option>North Tongu</option>
-                    <option>South Dayi</option>
-                    <option>South Tongu</option>
-                  </select>
-                </div>
-                <button className="w-full bg-ndc-red hover:bg-red-700 text-white font-black py-5 uppercase tracking-widest transition-all shadow-xl mt-4">
-                  Register as Volunteer
-                </button>
-              </form>
+              
+              {submitted ? (
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-ndc-green/10 p-8 text-center border-2 border-ndc-green"
+                >
+                  <CheckCircle2 className="mx-auto text-ndc-green mb-4" size={48} />
+                  <h4 className="text-2xl font-black text-ndc-green mb-2 uppercase">Registration Successful!</h4>
+                  <p className="font-bold text-slate-600">Thank you for joining the movement. We will contact you shortly.</p>
+                  <button 
+                    onClick={() => setSubmitted(false)}
+                    className="mt-6 text-xs font-black uppercase tracking-widest text-ndc-red hover:underline"
+                  >
+                    Register another person
+                  </button>
+                </motion.div>
+              ) : (
+                <form 
+                  className="space-y-6"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setIsSubmitting(true);
+                    
+                    try {
+                      // This points to a PHP script you will upload to your Hostinger server
+                      const response = await fetch('/volunteer.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                      });
+                      
+                      if (!response.ok) throw new Error('Failed to submit');
+                      
+                      setSubmitted(true);
+                      setFormData({ fullName: '', phone: '', constituency: '' });
+                    } catch (error) {
+                      alert("Something went wrong. Please try again or contact us directly.");
+                    } finally {
+                      setIsSubmitting(false);
+                    }
+                  }}
+                >
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</label>
+                    <input 
+                      type="text" 
+                      required
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                      className="w-full border-b-2 border-slate-200 px-0 py-3 focus:border-ndc-green outline-none transition-all font-bold text-lg" 
+                      placeholder="Enter your name" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      className="w-full border-b-2 border-slate-200 px-0 py-3 focus:border-ndc-green outline-none transition-all font-bold text-lg" 
+                      placeholder="Enter your phone" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Constituency</label>
+                    <select 
+                      required
+                      value={formData.constituency}
+                      onChange={(e) => setFormData({...formData, constituency: e.target.value})}
+                      className="w-full border-b-2 border-slate-200 px-0 py-3 focus:border-ndc-green outline-none transition-all font-bold text-lg bg-transparent"
+                    >
+                      <option value="">Select Constituency</option>
+                      <option>Adaklu</option>
+                      <option>Afadzato South</option>
+                      <option>Agotime-Ziope</option>
+                      <option>Akatsi North</option>
+                      <option>Akatsi South</option>
+                      <option>Anlo</option>
+                      <option>Central Tongu</option>
+                      <option>Ho Central</option>
+                      <option>Ho West</option>
+                      <option>Hohoe</option>
+                      <option>Keta</option>
+                      <option>Ketu North</option>
+                      <option>Ketu South</option>
+                      <option>Kpando</option>
+                      <option>North Dayi</option>
+                      <option>North Tongu</option>
+                      <option>South Dayi</option>
+                      <option>South Tongu</option>
+                    </select>
+                  </div>
+                  <button 
+                    disabled={isSubmitting}
+                    className={`w-full bg-ndc-red hover:bg-red-700 text-white font-black py-5 uppercase tracking-widest transition-all shadow-xl mt-4 flex items-center justify-center gap-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Processing...
+                      </>
+                    ) : 'Register as Volunteer'}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -859,7 +968,7 @@ const Footer = () => {
         <div className="h-px w-full bg-white/10 mb-8" />
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 font-bold text-[10px] uppercase tracking-[0.2em]">
-          <p>© 2026 FRANK K ANKUTSE CAMPAIGN. ALL RIGHTS RESERVED.</p>
+          <p>© 2028 FRANK K ANKUTSE CAMPAIGN. ALL RIGHTS RESERVED.</p>
           <p>PAID FOR BY THE COMMITTEE TO ELECT FRANK K ANKUTSE.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
@@ -888,7 +997,9 @@ export default function App() {
 
       {/* Floating Action Button */}
       <motion.a
-        href="#contact"
+        href="https://chat.whatsapp.com/LnrdXskPmTu4JOZx4s26ZD?mode=gi_t"
+        target="_blank"
+        rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         whileHover={{ scale: 1.1 }}
