@@ -981,7 +981,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 font-bold text-[10px] uppercase tracking-[0.2em]">
           <p>© 2028 FRANK K ANKUTSE CAMPAIGN. ALL RIGHTS RESERVED.</p>
-          <p>PAID FOR BY THE COMMITTEE TO ELECT FRANK K ANKUTSE.</p>
+          <p>Sponsored by Frank Ankutse Network and the Mitso Midzo Team</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>
             <a href="#" className="hover:text-white transition-colors">Terms</a>
