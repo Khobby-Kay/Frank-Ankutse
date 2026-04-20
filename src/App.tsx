@@ -170,8 +170,8 @@ const Hero = () => {
           initial={{ scale: 1.2, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.85 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          src="https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/625875009_34460314656892661_880893076253517866_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeE3uZNgxtdT8NZBWQDQ6yumTRzIeORoBKNNHMh45GgEo2_Rl9ah-CIuVLFwdwW5Hhm8PfRvnOvfcQTclx3jYcGq&_nc_ohc=l6D-fvRmRLUQ7kNvwEp1JHs&_nc_oc=AdlDGyY6cQ9LlmzrBABeJEmnu3eY5Nl24HU5DUZ24aq3jXdUZLDAQ7gLIbKay-kFBRk&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=5lCGDD5vDSRwIptVOG8XIQ&_nc_ss=8&oh=00_Afx7uHcnwJ3BAl5vIFZJzm4M57BOGdKgcUJYFkBTh-5bew&oe=69B9E92D" 
-          alt="Frank Selorm K. Ankutse with the People" 
+          src="/hero-frank.jpg" 
+          alt="Frank Selorm K. Ankutse - Lead Candidate" 
           className="w-full h-full object-cover object-center md:object-top"
           referrerPolicy="no-referrer"
         />
@@ -335,8 +335,8 @@ const About = () => {
           <div className="relative">
             <div className="aspect-square md:aspect-[4/5] bg-slate-100 overflow-hidden border-[12px] border-ndc-green/10">
               <img 
-                src="https://scontent.facc6-1.fna.fbcdn.net/v/t39.30808-6/634876580_34642916431965815_5623338786244481568_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGg-Pc_aNiGOPETRSVIx504rEM9dJHMh-asQz10kcyH5lVteeXlESQW45pC2-2eb-EA34Y4OWfjHRL4j2SValEl&_nc_ohc=ddMyB2yerHQQ7kNvwF6mRlt&_nc_oc=Adn7DBU2oG5QegX7eg8fwb2CzonJOYdq_kdWDHAS0Jd51pXqRWZmxtWby2SuxLuwnfw&_nc_zt=23&_nc_ht=scontent.facc6-1.fna&_nc_gid=ynb98g0nBdl8aQdv77-ksQ&_nc_ss=8&oh=00_Afz2tdDRcHEgCpUEcYS6m0bV2gjpDMRfqt-hYIUjxwPITQ&oe=69B9FDB0" 
-                alt="Frank Selorm K. Ankutse" 
+                src="/about-frank.jpg" 
+                alt="Frank Selorm K. Ankutse - About" 
                 className="w-full h-full object-cover object-top"
                 referrerPolicy="no-referrer"
               />
@@ -487,25 +487,25 @@ const News = () => {
       date: "Oct 24, 2025",
       title: "Frank Ankutse at the 2024 campaign in Hohoe ",
       category: "Campaign Trail",
-      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468763974_28416892641234923_2096448978056096836_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEPyHOhFznbbO9lRwqd8-C8rmUeGpCtfI-uZR4akK18j9Efq9Kbhwbw5JOV3ZbdiuOxPTMmuktEjEY7ykxc2K97&_nc_ohc=VmDYRxkqdwIQ7kNvwFX1Klm&_nc_oc=AdlA6bMAn4G9ufET7SU4miK3nkrlMaB8E-qgiID4m9UKwmvUibl1T1p24ds1yEkfnKQ&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=mRp7-eqxdajpcq5v5RNoyQ&_nc_ss=8&oh=00_Afwtltdt_x11EQ6ltj1CJvBriGuzDyCYIBMzv3RVc-3YxA&oe=69BAF2F5"
+      image: "/campaign-1.jpg"
     },
     {
       date: "Nov 02, 2025",
       title: "Transparency in Party Financing and Unity ahead of election 2024",
       category: "Policy",
-      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468740627_28416891817901672_7482338732039637867_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHpRD6N5hakYZS1e_0CYZ78HBnoIOuBKX8cGegg64EpfywuhUKQMEK14KOqnKMbZoY-ZUnuIN-IpBGPeALG2GOc&_nc_ohc=qu_0rHB9c64Q7kNvwGYFzT2&_nc_oc=Adm5wHQ510vlZZvxBL9YpFLwgJk0Pxo7oC0jVMr-DM8NCdHmHCwgjeBse0aJOzHbz-U&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=H38ayEZi6vnnUZo3I8EGcQ&_nc_ss=8&oh=00_AfxhL4_s8vZ-L-jeALzRps15-6E0FbOl2dvCJ1_E26_QyA&oe=69BAE032"
+      image: "/campaign-2.jpg"
     },
     {
       date: "Nov 15, 2024",
       title: "Youth Wing Endorses Frank K Ankutse",
       category: "Endorsement",
-      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/491940668_29849271387997034_5356064297161618259_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFC_4NoDesuk9iJhW-NzvNz1pIiW6r4tzjWkiJbqvi3OEEMpVax7OSptsyUws6-YimOsPVUM93yJ2UeXdp2kE4R&_nc_ohc=Oe7dSHziaJYQ7kNvwFTE0_H&_nc_oc=AdnT-46_fJHV6NreHs1yt8Rk8-T91MsOYt2E9LeLN-8_YYzotwEUENTHIQlUTnd60-E&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=gL-xs4kbmRC8zt2Me0WLFw&_nc_ss=8&oh=00_Afxsx0a2yUA--MbAm0CHcaoNVnXSylQxvlj2UZSJN1WGsg&oe=69BAFA72"
+      image: "/campaign-3.jpg"
     },
     {
       date: "Dec 05, 2025",
       title: "Grassroot mobilization and the love of a father.",
       category: "Campaign Trail",
-      image: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/494627570_30082339008023603_7049367356540434681_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=b895b5&_nc_eui2=AeFDGNjPhzHIE_lxa5iURWVG4jfVSzkVoDjiN9VLORWgOLrYkGPvlbHtnCzInXMeWzWk6omU1fdykFl-YEfN3L7D&_nc_ohc=X1TanIOpfY8Q7kNvwFLWy9Z&_nc_oc=AdnPPqSQsJRZiaZC36vgS-p3K5u8eOLx-GpIvR91Cc9L3l_JTbeCGtqOQJ3J7eoHWFE&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=SmJoaO29iraxV0bHC_5ymA&_nc_ss=8&oh=00_AfxYlBzJlSJ9-4Hwbr2xxj8F1SMDSsI4ax8wB0DGBV6-DA&oe=69BADE84"
+      image: "/campaign-4.jpg"
     }
   ];
 
@@ -668,10 +668,10 @@ const Constituencies = () => {
 
 const Gallery = () => {
   const images = [
-    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468763974_28416892641234923_2096448978056096836_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEPyHOhFznbbO9lRwqd8-C8rmUeGpCtfI-uZR4akK18j9Efq9Kbhwbw5JOV3ZbdiuOxPTMmuktEjEY7ykxc2K97&_nc_ohc=VmDYRxkqdwIQ7kNvwFX1Klm&_nc_oc=AdlA6bMAn4G9ufET7SU4miK3nkrlMaB8E-qgiID4m9UKwmvUibl1T1p24ds1yEkfnKQ&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=mRp7-eqxdajpcq5v5RNoyQ&_nc_ss=8&oh=00_Afwtltdt_x11EQ6ltj1CJvBriGuzDyCYIBMzv3RVc-3YxA&oe=69BAF2F5", caption: "Frank at campaign 2024" },
-    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/468740627_28416891817901672_7482338732039637867_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHpRD6N5hakYZS1e_0CYZ78HBnoIOuBKX8cGegg64EpfywuhUKQMEK14KOqnKMbZoY-ZUnuIN-IpBGPeALG2GOc&_nc_ohc=qu_0rHB9c64Q7kNvwGYFzT2&_nc_oc=Adm5wHQ510vlZZvxBL9YpFLwgJk0Pxo7oC0jVMr-DM8NCdHmHCwgjeBse0aJOzHbz-U&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=H38ayEZi6vnnUZo3I8EGcQ&_nc_ss=8&oh=00_AfxhL4_s8vZ-L-jeALzRps15-6E0FbOl2dvCJ1_E26_QyA&oe=69BAE032", caption: "Another at a campaign 2024" },
-    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/491940668_29849271387997034_5356064297161618259_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFC_4NoDesuk9iJhW-NzvNz1pIiW6r4tzjWkiJbqvi3OEEMpVax7OSptsyUws6-YimOsPVUM93yJ2UeXdp2kE4R&_nc_ohc=Oe7dSHziaJYQ7kNvwFTE0_H&_nc_oc=AdnT-46_fJHV6NreHs1yt8Rk8-T91MsOYt2E9LeLN-8_YYzotwEUENTHIQlUTnd60-E&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=gL-xs4kbmRC8zt2Me0WLFw&_nc_ss=8&oh=00_Afxsx0a2yUA--MbAm0CHcaoNVnXSylQxvlj2UZSJN1WGsg&oe=69BAFA72", caption: "Community Engagement" },
-    { url: "https://scontent.facc1-1.fna.fbcdn.net/v/t39.30808-6/494627570_30082339008023603_7049367356540434681_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=b895b5&_nc_eui2=AeFDGNjPhzHIE_lxa5iURWVG4jfVSzkVoDjiN9VLORWgOLrYkGPvlbHtnCzInXMeWzWk6omU1fdykFl-YEfN3L7D&_nc_ohc=X1TanIOpfY8Q7kNvwFLWy9Z&_nc_oc=AdnPPqSQsJRZiaZC36vgS-p3K5u8eOLx-GpIvR91Cc9L3l_JTbeCGtqOQJ3J7eoHWFE&_nc_zt=23&_nc_ht=scontent.facc1-1.fna&_nc_gid=SmJoaO29iraxV0bHC_5ymA&_nc_ss=8&oh=00_AfxYlBzJlSJ9-4Hwbr2xxj8F1SMDSsI4ax8wB0DGBV6-DA&oe=69BADE84", caption: "Hohoe Mobilization" }
+    { url: "/campaign-1.jpg", caption: "Frank at campaign 2024" },
+    { url: "/campaign-2.jpg", caption: "Commitment to Service" },
+    { url: "/campaign-3.jpg", caption: "Community Engagement" },
+    { url: "/campaign-4.jpg", caption: "Hohoe Mobilization" }
   ];
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -843,10 +843,10 @@ const Contact = () => {
                   <div className="w-20 h-20 bg-ndc-green text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-ndc-green/20">
                     <CheckCircle2 size={40} />
                   </div>
-                  <h4 className="text-3xl font-black text-ndc-black mb-4 uppercase tracking-tighter">Welcome to the Team!</h4>
+                  <h4 className="text-3xl font-black text-ndc-black mb-4 uppercase tracking-tighter">Thank You! Welcome to the Team.</h4>
                   <p className="font-bold text-slate-700 text-lg leading-relaxed mb-6">
-                    Thank you for joining <span className="text-ndc-green">Frank K Ankutse's</span> campaign. 
-                    Your commitment to the NDC and our constituency is what will bring the change we need.
+                    We've received your details. Thank you for joining <span className="text-ndc-green">Frank K Ankutse's</span> campaign network. 
+                    Your commitment to the NDC and our constituency is what will bring the victory we deserve in 2028.
                   </p>
                   <div className="bg-white p-4 rounded-lg border border-ndc-green/20 mb-8">
                     <p className="text-sm font-black text-ndc-red uppercase tracking-widest">Next Step</p>
